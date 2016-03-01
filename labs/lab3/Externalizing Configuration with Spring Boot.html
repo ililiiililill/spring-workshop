@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0091)https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="alternate" href="https://cdn.enablement.pivotal.io/index.xml" type="application/rss+xml" title="Externalizing Configuration with Spring Boot">
-		<link rel="icon" href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/P_Mark_WhiteOnTeal.png">
+		<link rel="alternate" href="./index.xml" type="application/rss+xml" title="Externalizing Configuration with Spring Boot">
+		<link rel="icon" href="./Externalizing Configuration with Spring Boot_files/P_Mark_WhiteOnTeal.png">
 		<title>Externalizing Configuration with Spring Boot</title>
 		<link rel="stylesheet" href="./Externalizing Configuration with Spring Boot_files/highlight.js.min.css">
 		<link rel="stylesheet" href="./Externalizing Configuration with Spring Boot_files/pivotal-ui.css">
@@ -41,14 +40,14 @@
 <ul>
 <li>
 <ul>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#requirements:3976528693a0108357f4928017600865">Requirements</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#what-you-will-learn:3976528693a0108357f4928017600865">What You Will Learn</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#exercises:3976528693a0108357f4928017600865">Exercises</a>
+<li><a href="./Externalizing Configuration with Spring Boot.html#requirements:3976528693a0108357f4928017600865">Requirements</a></li>
+<li><a href="./Externalizing Configuration with Spring Boot.html#what-you-will-learn:3976528693a0108357f4928017600865">What You Will Learn</a></li>
+<li><a href="./Externalizing Configuration with Spring Boot.html#exercises:3976528693a0108357f4928017600865">Exercises</a>
 <ul>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#refactoring-to-externalize-the-config:3976528693a0108357f4928017600865">Refactoring to Externalize the Config</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#using-environment-variables-for-config:3976528693a0108357f4928017600865">Using Environment Variables for Config</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#using-spring-profiles-for-config:3976528693a0108357f4928017600865">Using Spring Profiles for Config</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#resolving-conflicts:3976528693a0108357f4928017600865">Resolving Conflicts</a></li>
+<li><a href="./Externalizing Configuration with Spring Boot.html#refactoring-to-externalize-the-config:3976528693a0108357f4928017600865">Refactoring to Externalize the Config</a></li>
+<li><a href="./Externalizing Configuration with Spring Boot.html#using-environment-variables-for-config:3976528693a0108357f4928017600865">Using Environment Variables for Config</a></li>
+<li><a href="./Externalizing Configuration with Spring Boot.html#using-spring-profiles-for-config:3976528693a0108357f4928017600865">Using Spring Profiles for Config</a></li>
+<li><a href="./Externalizing Configuration with Spring Boot.html#resolving-conflicts:3976528693a0108357f4928017600865">Resolving Conflicts</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -63,7 +62,7 @@
 
 <h2 id="requirements:3976528693a0108357f4928017600865">Requirements</h2>
 
-<p><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/requirements">Lab Requirements</a></p>
+<p><a href="../../pre-requisites/Spring Boot Labs Setup.html">Lab Requirements</a></p>
 
 <hr>
 
@@ -96,8 +95,8 @@
 <span class="hljs-annotation">@RestController</span>
 <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloSpringBootApplication</span> </span>{
 
-	<span class="hljs-annotation">@Value</span>(<span class="hljs-string">"${greeting}"</span>)
-	String greeting;
+    <span class="hljs-annotation">@Value</span>(<span class="hljs-string">"${greeting}"</span>)
+    String greeting;
 
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
         SpringApplication.run(HelloSpringBootApplication.class, args);
@@ -119,7 +118,7 @@ String greeting;
 <p>We have also refactored the <code>hello()</code> method to return the injected greeting:</p>
 
 <pre><code class="language-java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>{
-		<span class="hljs-keyword">return</span> String.format(<span class="hljs-string">"%s World!"</span>, greeting);
+     <span class="hljs-keyword">return</span> String.format(<span class="hljs-string">"%s World!"</span>, greeting);
 }
 </code></pre>
 
@@ -238,7 +237,7 @@ $ mvn clean spring-boot:run
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
-			<p class="doc-footer-em"><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/externalizing-configuration/index.html#">Back to TOP</a></p>
+			<p class="doc-footer-em"><a href="./Externalizing Configuration with Spring Boot.html#">Back to TOP</a></p>
 		</div>
 	</div>
 

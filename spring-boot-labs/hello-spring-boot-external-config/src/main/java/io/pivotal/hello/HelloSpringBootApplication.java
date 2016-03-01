@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloSpringBootApplication {
 
-	@Value("${greeting}")
-	String greeting;
+    @Value("${greeting}")
+    String greeting;
 	
     public static void main(String[] args) {
         SpringApplication.run(HelloSpringBootApplication.class, args);
