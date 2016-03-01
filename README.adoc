@@ -15,7 +15,7 @@ This one day hands-on classroom style session will provide you with a hands on e
 11:15 - 12:15 PM::
  * Session 3 - Spring Boot Going Further
  * Lab 3
-12:15 PM - 1:15 PM ---- Lunch
+12:15 PM - 1:15 PM:: Lunch
 1:15 PM - 2:15 PM::
  * Session 4 - Spring Boot with Spring Data
  * Lab 4 - Spring Data (RDBMS)
