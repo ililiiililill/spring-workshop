@@ -41,9 +41,9 @@ This one day hands-on classroom style session will provide you with a hands on e
 * Developer Workshop
 ** Pre-work
 *** link:labs/labaccess.adoc[Get Environment Access]
-## link:labs/lab1/[Lab 1 - Introduction to Spring]
-** link:labs/lab2/[Lab 2 - Spring Boot Basics]
-** link:labs/lab3/[Lab 3 - Spring Boot Going Further]
-** link:labs/lab3/[Lab 4 - Spring Boot with Spring Data Rest]
-** link:labs/lab4/[Lab 5 - Testing RESTful Services]
-** link:labs/lab5/[Lab 6 - Spring Data ElasticSearch]
+## link:labs/lab1/Spring Intro Getting Started.html[Lab 1 - Introduction to Spring]
+** link:labs/lab2/Spring Boot Getting Started.html[Lab 2 - Spring Boot Basics]
+** link:labs/lab3/Externalizing Configuration with Spring Boot.html[Lab 3 - Spring Boot Going Further]
+** link:labs/lab4/Spring Boot with Spring Data Rest.html[Lab 4 - Spring Boot with Spring Data Rest]
+** link:labs/lab5/Spring Boot with Spring Data Rest.html#add-a-restful-api-with-spring-data-rest:3976528693a0108357f4928017600865[Lab 5 - ]
+** link:labs/lab6/[Lab 6 - Testing RESTful Services]
