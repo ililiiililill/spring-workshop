@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<!-- saved from url=(0080)https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="alternate" href="https://cdn.enablement.pivotal.io/index.xml" type="application/rss+xml" title="Spring Boot with Spring Data Rest">
-		<link rel="icon" href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/P_Mark_WhiteOnTeal.png">
+		<link rel="alternate" href="./index.xml" type="application/rss+xml" title="Spring Boot with Spring Data Rest">
+		<link rel="icon" href="./Spring Boot with Spring Data Rest_files/P_Mark_WhiteOnTeal.png">
 		<title>Spring Boot with Spring Data Rest</title>
 		<link rel="stylesheet" href="./Spring Boot with Spring Data Rest_files/highlight.js.min.css">
 		<link rel="stylesheet" href="./Spring Boot with Spring Data Rest_files/pivotal-ui.css">
@@ -41,17 +40,17 @@
 <ul>
 <li>
 <ul>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#requirements:3976528693a0108357f4928017600865">Requirements</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#what-you-will-learn:3976528693a0108357f4928017600865">What You Will Learn</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#exercises:3976528693a0108357f4928017600865">Exercises</a>
+<li><a href="./Spring Boot with Spring Data Rest.html#requirements:3976528693a0108357f4928017600865">Requirements</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#what-you-will-learn:3976528693a0108357f4928017600865">What You Will Learn</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#exercises:3976528693a0108357f4928017600865">Exercises</a>
 <ul>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#add-an-embedded-database:3976528693a0108357f4928017600865">Add an Embedded Database</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#persistence-with-spring-data-jpa:3976528693a0108357f4928017600865">Persistence With Spring Data JPA</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#add-a-restful-api-with-spring-data-rest:3976528693a0108357f4928017600865">Add a Restful API with Spring Data Rest</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#how-to-run-code-on-startup:3976528693a0108357f4928017600865">How to Run Code on Startup</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#turn-up-logging:3976528693a0108357f4928017600865">Turn Up Logging</a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#run-hello-spring-boot-rest:3976528693a0108357f4928017600865">Run <code>hello-spring-boot-rest</code></a></li>
-<li><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#deploy-to-pcf-with-no-code-changes-but-use-mysql:3976528693a0108357f4928017600865">Deploy to PCF with No Code Changes But Use MySQL</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#add-an-embedded-database:3976528693a0108357f4928017600865">Add an Embedded Database</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#persistence-with-spring-data-jpa:3976528693a0108357f4928017600865">Persistence With Spring Data JPA</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#add-a-restful-api-with-spring-data-rest:3976528693a0108357f4928017600865">Add a Restful API with Spring Data Rest</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#how-to-run-code-on-startup:3976528693a0108357f4928017600865">How to Run Code on Startup</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#turn-up-logging:3976528693a0108357f4928017600865">Turn Up Logging</a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#run-hello-spring-boot-rest:3976528693a0108357f4928017600865">Run <code>hello-spring-boot-rest</code></a></li>
+<li><a href="./Spring Boot with Spring Data Rest.html#deploy-to-pcf-with-no-code-changes-but-use-mysql:3976528693a0108357f4928017600865">Deploy to PCF with No Code Changes But Use MySQL</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -72,7 +71,7 @@
 
 <h2 id="requirements:3976528693a0108357f4928017600865">Requirements</h2>
 
-<p><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/labs-setup">Lab Requirements</a></p>
+<p><a href="../../pre-requisites/Spring Boot Labs Setup.html">Lab Requirements</a></p>
 
 <hr>
 
@@ -154,7 +153,7 @@
 
 <p>3) Review the following file: <code>$SPRING_BOOT_LABS_HOME/hello-spring-boot-rest/src/main/java/io/pivotal/hello/GreetingRepository.java</code>.  This repository interface provides <a href="http://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html">CRUD operations</a> against the <code>greeting</code> table.  All without the developer having to write any implementation!</p>
 
-<pre><code class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">GreetingRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Greeting</span>, <span class="hljs-title">Long</span>&gt;</span>{
+<pre><code class="language-java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">GreetingRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Greeting</span>, <span class="hljs-title">Long</span>&gt;</span> {
 
 }
 </code></pre>
@@ -167,7 +166,7 @@
       ddl-<span class="hljs-keyword">auto</span>: update
 </code></pre>
 
-<h3 id="add-a-restful-api-with-spring-data-rest:3976528693a0108357f4928017600865">Add a Restful API with Spring Data Rest</h3>
+<h3 id="add-a-restful-api-with-spring-data-rest:3976528693a0108357f4928017600865">Add a RESTful API with Spring Data Rest</h3>
 
 <p>1) Review the following file: <code>$SPRING_BOOT_LABS_HOME/hello-spring-boot-rest/pom.xml</code>.  By adding the <code>spring-boot-starter-data-rest</code> dependency, we have added REST support for our JPA repositories in the <code>hello-spring-boot-rest</code> application.</p>
 
@@ -340,7 +339,7 @@ $ cf start hello-spring-boot-rest
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
-			<p class="doc-footer-em"><a href="https://cdn.enablement.pivotal.io/spring-boot-primer/spring-data-rest/index.html#">Back to TOP</a></p>
+			<p class="doc-footer-em"><a href="./Spring Boot with Spring Data Rest.html#">Back to TOP</a></p>
 		</div>
 	</div>
 

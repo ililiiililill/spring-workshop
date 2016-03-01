@@ -5,16 +5,23 @@
 This one day hands-on classroom style session will provide you with a hands on experience with Pivotal Cloud Foundry concepts, concepts, architecture and fundamentals of pushing code and building applications. The session includes presentations, demos and hands on labs
 
 9 - 10 AM::
- * Session 1
+ * Session 1 - Introduction to Spring
+ * Lab 1 - Introduction to Spring
 10 - 11 AM::
- * Session 2
+ * Session 2 - 
+ * Lab 2 - 
 11 - 12 PM::
- * Session 3
-12:00 PM - 1 PM:: Lunch
+ * Session 3 - 
+ * Lab 3 - 
+12:00 PM - 1 PM ---- Lunch
 1 PM - 2 PM::
- * Session 4: 
+ * Session 4 - 
+ * Lab 4 - 
 2 PM - 3 PM::
- * Session 5: 
+ * Session 5 - 
+ * Lab 5 - 
+3 PM - 4 PM::
+ * Session 
 4 PM - 4:30 PM:: 
  * Wrap Up, Q/A, Feedback
 
