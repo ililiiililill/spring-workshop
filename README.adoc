@@ -2,7 +2,7 @@
 
 == Schedule
 
-This one day hands-on classroom style session will provide you with a hands on experience with Pivotal Cloud Foundry concepts, concepts, architecture and fundamentals of pushing code and building applications. The session includes presentations, demos and hands on labs
+This one day hands-on classroom style session will provide you with a hands on experience with Spring concepts and fundamentals of building applications. The session includes presentations, demos and hands on labs
 
 
 9 - 10 AM::
@@ -31,18 +31,16 @@ This one day hands-on classroom style session will provide you with a hands on e
 
 == Course Materials
 
-* Session 1: 
-**Ruby*** Session 2: 
-* Session 3: 
-* Session 4: 
-* Session 5: 
+* Session 1: link:Session_1_TheSpringCloudJourney.pptx
+* Session 2: link:Session_2_Spring_Boot_Basics.pptx
+* Session 3: link:Session_3_Spring_Boot_Going_Further.pptx
+* Session 4: link:Session_4_5_Spring_Data_REST.pptx
+* Session 5: link:Session_4_5_Spring_Data_REST.pptx
 
 * Developer Workshop
 ** Pre-work
-*** link:labs/labaccess.adoc[Get Environment Access]
-## link:labs/lab1/[Lab 1 - Introduction to Spring]
-** link:labs/lab2/[Lab 2 - Spring Boot Basics]
-** link:labs/lab3/[Lab 3 - Spring Boot Going Further]
-** link:labs/lab3/[Lab 4 - Spring Boot with Spring Data Rest]
-** link:labs/lab4/[Lab 5 - Testing RESTful Services]
-** link:labs/lab5/[Lab 6 - Spring Data ElasticSearch]
+*** link:labs/lab1/Spring Intro Getting Started.html[Lab 1 - Introduction to Spring]
+*** link:labs/lab2/Spring Boot Getting Started.html[Lab 2 - Spring Boot Basics]
+*** link:labs/lab3/Externalizing Configuration with Spring Boot.html[Lab 3 - Spring Boot Going Further]
+*** link:labs/lab4/Spring Boot with Spring Data Rest.html[Lab 4 - Spring Boot with Spring Data Rest]
+*** link:labs/lab5/Spring Boot with Spring Data Rest.html#add-a-restful-api-with-spring-data-rest:3976528693a0108357f4928017600865[Lab 5 - Testing RESTful Services]
