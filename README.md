@@ -6,23 +6,26 @@ This one day hands-on classroom style session will provide you with a hands on e
 
 9 - 10 AM::
  * Session 1 - Introduction to Spring
- * Lab 1 - Introduction to Spring
+ * Lab 1
 10 - 11 AM::
- * Session 2 - 
- * Lab 2 - 
-11 - 12 PM::
- * Session 3 - 
- * Lab 3 - 
-12:00 PM - 1 PM ---- Lunch
-1 PM - 2 PM::
- * Session 4 - 
- * Lab 4 - 
-2 PM - 3 PM::
- * Session 5 - 
- * Lab 5 - 
-3 PM - 4 PM::
- * Session 
-4 PM - 4:30 PM:: 
+ * Session 2 - Spring Boot Basics
+ * Lab 2
+11 - 11:15 AM:: Break
+11:15 - 12:15 PM::
+ * Session 3 - Spring Boot Going Further
+ * Lab 3
+12:15 PM - 1:15 PM ---- Lunch
+1:15 PM - 2:15 PM::
+ * Session 4 - Spring Boot with Spring Data
+ * Lab 4 - Spring Data (RDBMS)
+2:15 PM - 3:15 PM::
+ * Session 5 - Spring Boot with Spring Data REST
+ * Lab 5 - Spring Data REST
+3:15 - 3:30:: Break
+3:30 PM - 4:15 PM::
+ * Session 6 - Testing RESTful Services
+ * Lab 6
+4:15 PM - 4:45 PM:: 
  * Wrap Up, Q/A, Feedback
 
 == Course Materials
