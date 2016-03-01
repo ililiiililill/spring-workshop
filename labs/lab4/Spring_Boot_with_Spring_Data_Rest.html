@@ -12,13 +12,13 @@
 	</head>
 
 <body role="document">
-	
+
 
 
 <main role="main">
 
 <div class="row">
-	
+
 	<div class="pane bg-dark-2">
 		<div class="container">
 			<h2 class="type-neutral-11 title">Spring Boot with Spring Data Rest</h2>
@@ -31,7 +31,7 @@
 	<div class="doc-main">
 		<div class="container">
 			<div class="row">
-				
+
 <div class="col-sm-14 doc-sidebar">
 	<div class="sidebar-module">
 		<div class="sidebar-toc">
@@ -51,6 +51,7 @@
 <li><a href="./Spring_Boot_with_Spring_Data_Rest.html#turn-up-logging:3976528693a0108357f4928017600865">Turn Up Logging</a></li>
 <li><a href="./Spring_Boot_with_Spring_Data_Rest.html#run-hello-spring-boot-rest:3976528693a0108357f4928017600865">Run <code>hello-spring-boot-rest</code></a></li>
 <li><a href="./Spring_Boot_with_Spring_Data_Rest.html#deploy-to-pcf-with-no-code-changes-but-use-mysql:3976528693a0108357f4928017600865">Deploy to PCF with No Code Changes But Use MySQL</a></li>
+<li><a href="./Spring_Boot_with_Spring_Data_Rest.html#testing-restful-services:3976528693a0108357f4928017600865">Testing Restful Services</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -61,7 +62,7 @@
 
 			</div>
 			<div class="row">
-				
+
 
 <hr>
 
@@ -325,12 +326,154 @@ $ cf start hello-spring-boot-rest
 
 <p>When running locally Spring Boot will use the embedded database (<code>hsqldb</code>) and create the <code>DataSource</code> (how to connect to the database) for you.  The Cloud Foundry Java Buildpack will detect a database service binding and re-write the <code>DataSource</code> for you when you run in the cloud, so that you can connect to your bound service.  This part of the Java Buildpack is known as auto-reconfiguration.  More details can be found <a href="https://github.com/cloudfoundry/java-buildpack-auto-reconfiguration">here</a>.</p>
 
+<h3 id="testing-restful-services:3976528693a0108357f4928017600865">Testing Restful Services</h3>
+<p>We will now look at how to test a spring boot application using Spring Test.</p>
+<p>1) Add Spring Test Dependancies </p>
+<pre><code class="language-xml hljs"><span class="hljs-tag">&lt;<span class="hljs-title">dependency</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-title">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-title">scope</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">dependency</span>&gt;</span>
+</code></pre>
+
+<p>2) Add a Rest Controller </p>
+<pre><code class="language-java hljs"><span class="hljs-annotation">@RestController</span><br><span class="hljs-annotation">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span><span class="hljs-class"> <span class="hljs-keyword">class</span> <span class="hljs-title">HelloSpringBootApplication</span> </span> { ... }</span>
+</code></pre>
+
+<p>3) Add a new CRUD Repository </p>
+<pre><code class="language-java hljs">
+package io.pivotal.hello;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+
+import java.util.List;
+
+public interface GreetingCrudRepository extends CrudRepository<Greeting, Integer> {
+
+    /**
+     * Find a greeting with the specified text.
+     *
+     * @param text
+     * @return The text if found, null otherwise.
+     */
+    public Greeting findByText(String text);
+
+    /**
+     * Find greeting whose name contains the specified string
+     *
+     * @param partialText
+     *            Any alphabetic string.
+     * @return The list of matching greetings - always non-null, but may be
+     *         empty.
+     */
+    public List<Greeting> findByTextContainingIgnoreCase(String partialText);
+
+}
+</code></pre>
+
+<p>4) Create restful endpoints for the  Crud Repository </p>
+<pre><code language=language-java hljs>
+	@Autowired
+	private GreetingCrudRepository crudGreeting;
+
+	@RequestMapping("/findAll")
+	public List<Greeting> findAll(){
+		java.util.logging.Logger.getGlobal().info("Handling request...");
+		return greeting.findAll();
+	}
+
+	@RequestMapping("/findById")
+	public Greeting findById(int id){
+		java.util.logging.Logger.getGlobal().info("Handling request...");
+		return crudGreeting.findOne(id);
+	}
+
+	@RequestMapping("/findByText")
+	public Greeting findByText(String text){
+		java.util.logging.Logger.getGlobal().info("Handling request...");
+		return crudGreeting.findByText(text);
+	}
+
+	@RequestMapping("/findByPartialText")
+	public List<Greeting> findByPartialText(String text){
+		java.util.logging.Logger.getGlobal().info("Handling request...");
+		return crudGreeting.findByTextContainingIgnoreCase(text);
+	}
+</code></pre>
+
+<p>3) Create a Test Class </p>
+<pre><code language=language-java hljs>
+package io.pivotal.hello;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.validation.constraints.AssertTrue;
+import java.util.List;
+import java.util.logging.Logger;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = HelloSpringBootApplication.class)
+public class TestSpringBootApplication {
+
+    protected static final Integer ACCOUNT_1 = 1;
+    protected static final String ACCOUNT_1_NAME = "Hello";
+
+    @Autowired
+    HelloSpringBootApplication application;
+
+    @Test
+    public void validGreetingId() {
+        Logger.getGlobal().info("Start validGreetingId test");
+        Greeting greeting = application.findById(1);
+
+        Assert.assertNotNull(greeting);
+        Assert.assertEquals(ACCOUNT_1,greeting.getId());
+        Logger.getGlobal().info("End validGreetingId test");
+    }
+
+    @Test
+    public void validGreetingText() {
+        Logger.getGlobal().info("Start validGreetingText test");
+        Greeting greeting = application.findByText("Hello");
+
+        Assert.assertNotNull(greeting);
+        Assert.assertEquals(ACCOUNT_1_NAME, greeting.getText());
+        Logger.getGlobal().info("End validGreetingText test");
+    }
+
+    @Test
+    public void validGreetingPartialText() {
+        Logger.getGlobal().info("Start validGreetingPartialText test");
+        List<Greeting> greetings = application.findByPartialText("He");
+
+        Assert.assertNotNull(greetings);
+        Assert.assertTrue(greetings.size()>0);
+        Assert.assertEquals(ACCOUNT_1_NAME, greetings.iterator().next().getText());
+        Logger.getGlobal().info("End validGreetingText test");
+    }
+}
+</code></pre>
+
+<p>4) Lets compile the project. Lets navigate to $REPOS_HOME/hello-spring-data-rest </p>
+<pre><code language=language-shell>
+mvn install
+</code></pre>
+
+<p>5) Lets run the tests.</p>
+<pre><code language=language-shell>
+mvn test -Dtest=TestSpringBootApplication
+</code></pre>
+
 			</div>
 		</div>
 	</div>
-
-
-
 
 </main>
 
@@ -343,10 +486,10 @@ $ cf start hello-spring-boot-rest
 		</div>
 	</div>
 
-</div> 
+</div>
 
 <footer class="doc-footer">
-	
+
 	<p>© Copyright Pivotal. All rights reserved.</p>
 </footer>
 
